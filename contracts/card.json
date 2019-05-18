@@ -1,0 +1,9 @@
+{
+  "buyerId": 10,
+  "card": {
+    "cvv": "string",
+    "expirationDate": "2023-11-16",
+    "holderName": "VISA",
+    "number": "string"
+  }
+}

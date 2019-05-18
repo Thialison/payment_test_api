@@ -1,0 +1,20 @@
+{
+  "buyer": {
+    "cpf": "string",
+    "email": "string",
+    "name": "string"
+  },
+  "client": {
+    "id": 1
+  },
+  "payment": {
+    "amount": 2000,
+    "card": {
+      "cvv": "string",
+      "expirationDate": "string",
+      "holderName": "string",
+      "number": "string"
+    },
+    "type": "CARD"
+  }
+}
