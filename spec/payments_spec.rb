@@ -11,8 +11,20 @@ describe 'Payments Controller' do
     expect(response.code).to eq(200)
   end
 
-  it 'Busca pagamento pelo id', payments: true do
-    response = @payments.get_payments_by_id(5)
+  it 'Realiza pagamento com dados inválidos', payments: true do
+    payload = JSON.parse(File.read('./contracts/payments.json'))
+    response = @payments.registro_pagamento(payload)
+    expect(response.code).to eq(404)
+  end
+
+  it 'Busca de pagamento por id inexistente', payments: true do
+    response = @payments.get_payments_by_id(300)
+    expect(response.body).to eq("Can't find payment with id: 300")
+    expect(response.code).to eq(500)
+  end
+
+  it 'Valida contrado do busca pagamento pelo id', payments: true do
+    response = @payments.get_payments_by_id(1)
     key = response.parsed_response
     expect(key['client']['id']).to be_a_kind_of(Integer)
     expect(key['buyer']['name']).to be_a_kind_of(String)

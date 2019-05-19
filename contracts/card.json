@@ -1,5 +1,5 @@
 {
-  "buyerId": 10,
+  "buyerId": 1,
   "card": {
     "cvv": "string",
     "expirationDate": "2023-11-16",

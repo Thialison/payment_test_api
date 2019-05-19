@@ -8,7 +8,7 @@
     "id": 1
   },
   "payment": {
-    "amount": 2000,
+    "amount": -2000,
     "card": {
       "cvv": "string",
       "expirationDate": "string",
