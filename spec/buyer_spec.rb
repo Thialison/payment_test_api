@@ -4,18 +4,18 @@ describe 'Buyer Controller' do
     @payload = @buyer.generate_payload
   end
 
-  it 'Realiza POST de um buyer válido', buyer: true do
+  it 'Cadastra buyer válido', buyer: true do
     response = @buyer.create_buyer(@payload)
     expect(response.code).to eq(201)
   end
 
-  it 'Realiza POST de um buyer inválido', buyer: true do
-    response = @buyer.create_buyer("cpf": 'string', "email": 'string')
+  it 'Cadastra buyer com dados inválidos', buyer: true do
+    response = @buyer.create_buyer({"cpf": 'string', "email": 'string'})
     expect(response.code).to eq(404)
   end
 
-  it 'Validar contrato do buyer', buyer: true do
-    response = @buyer.get_buyer_by_id(9)
+  it 'Valida contrato busca buyer pelo id', buyer: true do
+    response = @buyer.get_buyer_by_id(1)
     key = response.parsed_response
     expect(key['name']).to be_a_kind_of(String)
     expect(key['email']).to be_a_kind_of(String)
